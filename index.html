@@ -3,65 +3,277 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Operations Architect | EdOPS</title>
-  <meta name="description" content="AI Operations Architect helping European teams design and automate intelligent operations. Privacy-forward, no tracking.">
-  <link rel="canonical" href="https://example.com/lead-journey-offer">
+  <title>AI Operations Architect | EdOPS — Revenue Automation for European Teams</title>
+  <meta name="description" content="I design revenue automation systems for small European teams: CRM architecture, WhatsApp workflows, AI enablement, and reporting dashboards. Privacy-forward, no bloat.">
+  <link rel="canonical" href="https://edops.eu">
   <meta property="og:title" content="AI Operations Architect | EdOPS">
-  <meta property="og:description" content="AI Operations Architect helping European teams design and automate intelligent operations. Privacy-forward approach.">
+  <meta property="og:description" content="Revenue systems that turn leads into clients — on autopilot. CRM, WhatsApp automation, AI workflows for European teams.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/lead-journey-offer">
-  <meta property="og:image" content="https://example.com/og-image.jpg">
+  <meta property="og:url" content="https://edops.eu">
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Hero stats ── */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-stat-num {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .hero-stat-lbl {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Language chips ── */
+    .lang-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .lang-chip {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--bg);
+    }
+
+    /* ── Offer cards ── */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .offer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .offer-card.featured {
+      border-color: var(--accent);
+      outline: 1px solid var(--accent);
+    }
+    .offer-card h3 { margin: 0.6rem 0 0; font-size: 1.1rem; }
+    .offer-card > p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+    .offer-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .offer-tag.blue  { background: var(--accent); color: #fff; }
+    .offer-tag.warm  { background: var(--secondary); color: #6c4b12; }
+    .offer-outcomes {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      flex: 1;
+    }
+    .offer-outcomes li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .offer-outcomes li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .offer-price {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Tool chips ── */
+    .tools-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+    .tool-chip {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* ── Process steps ── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      counter-reset: steps;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      counter-increment: steps;
+    }
+    .step-card::before {
+      content: counter(steps, decimal-leading-zero);
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-soft);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .step-card h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+    .step-card p  { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+    /* ── Bridge / dark callout ── */
+    .bridge-card {
+      background: #0f1012;
+      color: #f5f5f5;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .bridge-card .eyebrow { color: rgba(245,245,245,0.45); }
+    .bridge-card h2 { margin: 0.35rem 0 0.6rem; color: #fff; }
+    .bridge-card p  { margin: 0; color: rgba(245,245,245,0.65); max-width: 540px; font-size: 0.97rem; }
+
+    /* ── Featured use-case link strip ── */
+    .case-link-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-top: 2.5rem;
+    }
+    .case-link-strip h3 { margin: 0.35rem 0 0.5rem; }
+    .case-link-strip p  { margin: 0; font-size: 0.95rem; color: var(--muted); max-width: 560px; }
+
+    /* ── Responsive tweaks ── */
+    @media (max-width: 600px) {
+      .bridge-card { text-align: center; flex-direction: column; align-items: center; }
+      .case-link-strip { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header" id="top">
     <div class="container header-content">
       <a class="brand" href="#hero" aria-label="EdOPS home">
         <img src="logos/EdOPS logo.png" alt="EdOPS" width="132" height="32">
       </a>
       <nav class="header-cta" aria-label="Primary">
-        <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a 30-minute session</a>
-        <a class="btn secondary" href="mailto:edu@edops.eu" aria-label="Send an email to edu@edops.eu">Email me</a>
+        <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a free 30-min call</a>
+        <a class="btn secondary" href="mailto:edu@edops.eu" aria-label="Email edu@edops.eu">Email me</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
     <section id="hero" class="hero">
       <div class="container hero-grid">
+
         <div class="hero-text">
-          <p class="eyebrow">AI Operations Architect</p>
-          <h1>AI-driven Operations Design &amp; Automation</h1>
-          <p>I architect AI-driven operations for small teams — designing intelligent workflows, integrating systems, and enabling AI across the full operations stack so growth stays lean and human.</p>
+          <p class="eyebrow">AI Operations Architect · Europe &amp; LATAM</p>
+          <h1>Revenue systems that turn leads into clients — on autopilot.</h1>
+          <p>I design and build intelligent operations for small teams: CRM architecture, WhatsApp automation, AI-powered workflows, and dashboards that make decisions obvious. Privacy-forward. No bloat.</p>
           <div class="hero-cta">
-            <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a 30-minute session</a>
-            <a class="btn link" href="mailto:edu@edops.eu">Email me</a>
+            <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a free 30-min call</a>
+            <a class="btn link" href="#services">See what I build →</a>
           </div>
-          <p class="cta-note privacy-note">Privacy-forward approach. No tracking pixels on this page.</p>
+          <p class="cta-note privacy-note">No tracking pixels on this page. Privacy-first by design.</p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num">4+</span>
+              <span class="hero-stat-lbl">Years in ops &amp; CRM</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">&lt;1 min</span>
+              <span class="hero-stat-lbl">Target lead response</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">4</span>
+              <span class="hero-stat-lbl">Languages</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">€0</span>
+              <span class="hero-stat-lbl">Extra ad spend needed</span>
+            </div>
+          </div>
         </div>
+
         <div class="hero-card about-card" aria-labelledby="about-card-title">
           <div class="about-card-content">
             <h2 id="about-card-title">About Eduardo</h2>
-            <p>AI Operations Architect for privacy-first European teams — designing intelligent ops systems that blend CRM, AI workflows, and compliance-ready automation.</p>
+            <p>AI Operations Architect for privacy-first European teams. I design end-to-end revenue systems that blend CRM, AI workflows, and compliance-ready automation — so your team spends less time chasing leads and more time closing them.</p>
             <ul class="about-list">
-              <li>Architects AI-driven operations end-to-end: CRM, automation, and AI guardrails.</li>
-              <li>Languages: English, Spanish, Portuguese, plus conversational German.</li>
-              <li>Ops background with Audible (Amazon), Lingoda, PlusDental, and Roger.</li>
+              <li>CRM &amp; lifecycle ops at Audible (Amazon), Lingoda, PlusDental, and Roger.</li>
+              <li>Specialist in HubSpot, Make, WhatsApp automation, and Braze.</li>
+              <li>GDPR-aware builds for European markets. WhatsApp-native for LATAM.</li>
+              <li>Based between Madrid and Rio — available across time zones.</li>
             </ul>
-            <a class="linkedin-link" href="https://www.linkedin.com/in/eduardo-bravo-carvalho/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <div class="lang-chips">
+              <span class="lang-chip">🇬🇧 English</span>
+              <span class="lang-chip">🇪🇸 Spanish</span>
+              <span class="lang-chip">🇧🇷 Portuguese</span>
+              <span class="lang-chip">🇩🇪 German</span>
+            </div>
+            <a class="linkedin-link" href="https://www.linkedin.com/in/eduardo-bravo-carvalho/" target="_blank" rel="noopener noreferrer" style="margin-top:1rem;">LinkedIn profile →</a>
           </div>
         </div>
+
       </div>
     </section>
+
+    <!-- ══════════════════════════════════════════
+         EXPERIENCE
+    ══════════════════════════════════════════ -->
     <section id="experience" class="section experience">
       <div class="container">
+
         <div class="section-heading">
           <p class="eyebrow">Experience &amp; proof</p>
-          <h2>Selected Experience &amp; Proof</h2>
-          <p>Embedded lifecycle and ops work for European teams who need privacy-forward automations. Use the logos below in your proposals with confidence.</p>
+          <h2>Built inside the teams, not just around them.</h2>
+          <p>Embedded lifecycle and ops work at European companies that demanded quality, compliance, and scale — across CRM, automation, and data.</p>
         </div>
+
         <div class="logoRow" aria-label="Selected experience logos">
           <div class="logoItem">
             <img class="logoImg" src="./logos/audible-seeklogo.png" alt="Audible logo" loading="lazy">
@@ -76,149 +288,254 @@
             <img class="logoImg" src="./logos/66dac97d903c8371823b26a1_Roger_Logo_Main_Color_Web.svg" alt="Roger logo" loading="lazy">
           </div>
         </div>
+
         <div class="case-grid">
           <article class="card case-card">
             <div class="case-card-head">
-              <p class="eyebrow">Company</p>
-              <h3>Audible (Amazon)</h3>
+              <p class="eyebrow">Audible · Amazon</p>
+              <h3>Lifecycle campaigns at global scale</h3>
               <p class="case-context">Lifecycle Specialist · 10–15 campaigns/month</p>
             </div>
             <ul class="case-points">
-              <li><strong>Context:</strong> Global customer outreach needed clearer journeys and QA.</li>
-              <li><strong>What I built:</strong> Email outreach flows, automated approvals, and QA-ready customer journeys.</li>
-              <li><strong>Tools:</strong> Braze, HTML/CSS modules, automation scripts.</li>
-              <li><strong>Outcome:</strong> Lifecycle campaigns stayed live across markets with QA-ready handoffs.</li>
+              <li>Built email outreach flows and automated approval workflows for global customer journeys across multiple markets.</li>
+              <li>Delivered QA-ready lifecycle campaigns with zero dropped handoffs between teams.</li>
             </ul>
+            <p class="tools-line"><strong>Tools:</strong> Braze, HTML/CSS, automation scripts</p>
           </article>
+
           <article class="card case-card">
             <div class="case-card-head">
-              <p class="eyebrow">Company</p>
-              <h3>Lingoda</h3>
+              <p class="eyebrow">Lingoda</p>
+              <h3>Multichannel CRM for students &amp; teachers</h3>
               <p class="case-context">CRM Manager · Multichannel lifecycle</p>
             </div>
             <ul class="case-points">
-              <li><strong>Context:</strong> Needed consistent student + teacher engagement across channels.</li>
-              <li><strong>What I built:</strong> Multichannel lifecycle campaigns with dashboards and standardized sheets.</li>
-              <li><strong>Tools:</strong> Braze, Looker/Tableau, SQL.</li>
-              <li><strong>Outcome:</strong> Delivered consistent lifecycle reporting and engagement across locales.</li>
+              <li>Designed multichannel lifecycle campaigns with dashboards and standardised reporting sheets across locales.</li>
+              <li>Delivered consistent engagement and lifecycle reporting that scaled across international teams.</li>
             </ul>
+            <p class="tools-line"><strong>Tools:</strong> Braze, Looker, Tableau, SQL</p>
           </article>
+
           <article class="card case-card">
             <div class="case-card-head">
-              <p class="eyebrow">Company</p>
-              <h3>PlusDental</h3>
+              <p class="eyebrow">PlusDental</p>
+              <h3>Sales ops automation &amp; pipeline hygiene</h3>
               <p class="case-context">Sales Ops · CRM automation workflows</p>
             </div>
             <ul class="case-points">
-              <li><strong>Context:</strong> Sales pipeline needed faster speed-to-lead and conversion clarity.</li>
-              <li><strong>What I built:</strong> HubSpot workflows, routing logic, and CRM hygiene for Sales Ops.</li>
-              <li><strong>Tools:</strong> HubSpot CRM, Zapier, BI dashboards.</li>
-              <li><strong>Outcome:</strong> Sales operations gained faster response loops and conversion-ready reporting.</li>
+              <li>Built HubSpot workflows, lead routing logic, and CRM hygiene processes that improved speed-to-lead.</li>
+              <li>Sales floor gained conversion-ready reporting and faster response loops across the pipeline.</li>
             </ul>
+            <p class="tools-line"><strong>Tools:</strong> HubSpot CRM, Zapier, BI dashboards</p>
           </article>
+
           <article class="card case-card">
             <div class="case-card-head">
-              <p class="eyebrow">Company</p>
-              <h3>Roger</h3>
+              <p class="eyebrow">Roger · Startup</p>
+              <h3>Cold outreach to CRM — zero manual steps</h3>
               <p class="case-context">Startup · Cold outreach automation</p>
             </div>
             <ul class="case-points">
-              <li><strong>Context:</strong> Needed cold email outreach that flowed into HubSpot automatically.</li>
-              <li><strong>What I built:</strong> Zapier automation to sync Instantly replies and form fills into HubSpot sequences.</li>
-              <li><strong>Tools:</strong> Instantly, Zapier, HubSpot CRM.</li>
-              <li><strong>Outcome:</strong> Every lead appeared in HubSpot with ownership and follow-up tasks.</li>
+              <li>Automated the sync from Instantly to HubSpot — every reply and form fill landed with ownership and follow-up tasks.</li>
+              <li>Every lead appeared in HubSpot ready to work, with zero manual intervention.</li>
             </ul>
+            <p class="tools-line"><strong>Tools:</strong> Instantly, Zapier, HubSpot CRM</p>
           </article>
         </div>
-        <div style="margin-top: 2rem;">
-          <article class="card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
-            <div style="flex: 1; min-width: 240px;">
-              <p class="eyebrow">Featured use case</p>
-              <h3 style="margin: 0.4rem 0 0.5rem;">Lead Capture &amp; Booking Automation — Premium Dental Clinic</h3>
-              <p style="margin: 0; font-size: 0.95rem; color: var(--muted);">Full revenue automation system: sub-1-minute lead response, WhatsApp follow-ups, HubSpot pipeline, appointment reminders, and Looker Studio reporting — all connected.</p>
+
+        <div class="case-link-strip" role="region" aria-label="Featured use case">
+          <div>
+            <p class="eyebrow">Featured use case</p>
+            <h3>Lead Capture &amp; Booking Automation — Premium Dental Clinic</h3>
+            <p>A complete revenue automation system: sub-1-minute lead response, WhatsApp follow-up sequences, HubSpot pipeline with 8 stages, appointment reminders, no-show recovery, and real-time Looker Studio reporting — all connected, zero manual work.</p>
+          </div>
+          <a class="btn primary" href="case-dental-booking.html" style="flex-shrink:0;">Read the use case →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SERVICES
+    ══════════════════════════════════════════ -->
+    <section id="services" class="section alt">
+      <div class="container">
+        <p class="eyebrow">Productized services</p>
+        <h2>Three ways to stop revenue leaking.</h2>
+        <p class="section-intro">Packaged around the problems that cost service businesses the most money — slow lead response, inconsistent follow-up, and invisible pipelines.</p>
+
+        <div class="offer-grid">
+
+          <article class="offer-card featured">
+            <div>
+              <span class="offer-tag blue">Most popular</span>
+              <h3>Lead Capture &amp; Booking System</h3>
+              <p>A complete system that takes leads from any channel — web form, WhatsApp, Meta Ads — all the way to a confirmed appointment. Fully automated.</p>
             </div>
-            <a class="btn primary" href="case-dental-booking.html" style="flex-shrink: 0;">Read the use case</a>
+            <ul class="offer-outcomes">
+              <li>Automated sub-1-minute first response to every inbound lead</li>
+              <li>Lead scoring with automatic booking sequence at ≥70 points</li>
+              <li>Appointment confirmations, reminders, and no-show recovery</li>
+              <li>Full HubSpot pipeline with 8 stages and entry/exit criteria</li>
+              <li>Looker Studio dashboard — conversion rates at every stage</li>
+            </ul>
+            <p class="offer-price">Setup: from €1,800 · Delivery: 4–6 weeks</p>
           </article>
+
+          <article class="offer-card">
+            <div>
+              <span class="offer-tag warm">30–45 day sprint</span>
+              <h3>Database Reactivation Sprint</h3>
+              <p>Turn cold contacts into live appointments in a fixed sprint. Ideal when you have a CRM full of leads that were never properly followed up.</p>
+            </div>
+            <ul class="offer-outcomes">
+              <li>Audit of existing contacts and data quality</li>
+              <li>Segmented reactivation sequences via email + WhatsApp</li>
+              <li>Offer framing and copy for re-engagement</li>
+              <li>Pipeline to track and convert reactivated leads</li>
+            </ul>
+            <p class="offer-price">From €1,000 · Delivery: 30–45 days</p>
+          </article>
+
+          <article class="offer-card">
+            <div>
+              <span class="offer-tag warm">Ongoing retainer</span>
+              <h3>Post-Visit Follow-up &amp; Retention</h3>
+              <p>For businesses that lose deals after the first meeting. A follow-up and retention layer that keeps prospects warm and converts the undecided.</p>
+            </div>
+            <ul class="offer-outcomes">
+              <li>Automated post-visit follow-up sequences</li>
+              <li>Quote and decision-nudge flows with timed triggers</li>
+              <li>Re-engagement workflows for no-shows and cold deals</li>
+              <li>Monthly reporting on pipeline health and conversions</li>
+            </ul>
+            <p class="offer-price">From €750/month · Ongoing retainer</p>
+          </article>
+
         </div>
+
+        <div style="margin-top:2rem;">
+          <p class="eyebrow" style="margin-bottom:0.75rem;">Typical tools across all projects</p>
+          <div class="tools-wrap">
+            <span class="tool-chip">HubSpot</span>
+            <span class="tool-chip">Make</span>
+            <span class="tool-chip">Zapier</span>
+            <span class="tool-chip">WhatsApp · Meta Cloud API</span>
+            <span class="tool-chip">Braze</span>
+            <span class="tool-chip">n8n</span>
+            <span class="tool-chip">OpenAI API</span>
+            <span class="tool-chip">Looker Studio</span>
+            <span class="tool-chip">Google Sheets</span>
+            <span class="tool-chip">Calendly</span>
+            <span class="tool-chip">Instantly</span>
+            <span class="tool-chip">Slack</span>
+            <span class="tool-chip">Google Workspace</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section id="services" class="section">
+    <!-- ══════════════════════════════════════════
+         HOW IT WORKS
+    ══════════════════════════════════════════ -->
+    <section id="how" class="section">
       <div class="container">
-        <p class="eyebrow">Modular services</p>
-        <h2>Modular services built to scale with you.</h2>
-        <p class="section-intro">Activate the right mix of CRM setup, intelligent workflows, integrations, and AI enablement to meet your go-to-market milestones.</p>
-        <div class="services-grid">
-          <article class="card service-card">
-            <h3>CRM setup: from zero to launch</h3>
-            <p>Build a clean CRM foundation: lifecycle mapping, pipeline stages, fields, automation rules, and journeys that feel personal — not spammy.</p>
-            <p class="tools-line"><strong>Typical tools:</strong> HubSpot (or similar), lifecycle journeys, consent-aware forms</p>
-          </article>
-          <article class="card service-card">
-            <h3>Workflow automation</h3>
-            <p>Automate repetitive ops work: lead routing, follow-ups, handoffs, notifications, and task creation — with decisioning where it helps.</p>
-            <p class="tools-line"><strong>Typical tools:</strong> Zapier, Make, routing rules, enrichment</p>
-          </article>
-          <article class="card service-card">
-            <h3>Systems integrations</h3>
-            <p>Connect marketing, sales, and ops data so teams share one source of truth — without bloated infrastructure.</p>
-            <p class="tools-line"><strong>Typical tools:</strong> APIs, webhooks, Slack, Google Workspace, data hygiene</p>
-          </article>
-          <article class="card service-card">
-            <h3>AI enablement (AI process automation for teams)</h3>
-            <p>Turn AI into a practical ops advantage: playbooks, prompt workflows, QA support, and lightweight automations your team can actually run.</p>
-            <p class="tools-line"><strong>Typical tools:</strong> ChatGPT/LLM workflows, playbooks, templates, onboarding</p>
-          </article>
-        </div>
-      </div>
-    </section>
+        <p class="eyebrow">How it works</p>
+        <h2>From first call to live system — in four steps.</h2>
+        <p class="section-intro">No long retainers before value is delivered. Every project starts with a clear architecture, builds toward a working system, and ends with your team able to run it independently.</p>
 
-    <section id="faq" class="section alt">
-      <div class="container">
-        <p class="eyebrow">FAQ</p>
-        <h2>Questions people ask</h2>
-        <div class="faq-grid">
-          <article>
-            <h3>What does AI process automation mean here?</h3>
-            <p>It’s the layer that combines CRM data, workflow logic, and AI assistants so repetitive work, QA, or routing decisions happen automatically—but every action is documented and easy to edit.</p>
-          </article>
-          <article>
-            <h3>Which CRMs and tools do you work with?</h3>
-            <p>HubSpot is the primary build environment, but I adapt to similar CRMs. Automations rely on Zapier/Make, APIs, Slack, Google Workspace, and lightweight LLM workflows.</p>
-          </article>
-          <article>
-            <h3>Can you integrate my existing stack?</h3>
-            <p>Yes. We audit your current stack, map data owners, and use APIs or middleware to make sure marketing, sales, and ops teams share the same source of truth.</p>
-          </article>
-          <article>
-            <h3>How fast can we launch something useful?</h3>
-            <p>Most projects ship an initial CRM + automation layer within a few weeks, with AI workflows layered on immediately after sign-off. Timelines depend on access and approvals.</p>
-          </article>
-          <article>
-            <h3>Do you need cookies or trackers?</h3>
-            <p>No. This page runs without tracking pixels, and I prioritize privacy-first data capture. If analytics are needed, we scope them with compliance in mind.</p>
-          </article>
-          <article>
-            <h3>What do you need from us to start?</h3>
-            <p>Calendar access for a kickoff, admin rights to your CRM and automations, a short list of goals, and any compliance notes so the build aligns with your policies.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="cta" class="section alt final-cta">
-      <div class="container">
-        <div class="card final-cta-card">
-          <p class="eyebrow">Next step</p>
-          <h2>Ready to automate your CRM and operations with AI?</h2>
-          <p>Let’s identify quick wins in your CRM and ops workflows and design a roadmap that keeps automation human.</p>
-          <div class="cta-actions">
-            <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a 30-minute session</a>
-            <a class="btn secondary" href="mailto:edu@edops.eu">Email me</a>
+        <div class="process-grid">
+          <div class="step-card">
+            <h3>Audit &amp; map</h3>
+            <p>We review your current stack, data flow, and ops gaps together. I identify exactly where leads are dropping and why revenue is leaking before touching a single tool.</p>
+          </div>
+          <div class="step-card">
+            <h3>Design the architecture</h3>
+            <p>I design the full system: CRM structure, pipeline stages, automation logic, and data layer — documented in a clear diagram before any configuration starts.</p>
+          </div>
+          <div class="step-card">
+            <h3>Build &amp; automate</h3>
+            <p>I implement end-to-end: CRM setup, workflows, integrations, WhatsApp flows, booking sequences, and the Looker Studio reporting dashboard.</p>
+          </div>
+          <div class="step-card">
+            <h3>Hand off &amp; optimise</h3>
+            <p>Your team gets a working system and a clear operations manual. I stay available to tune as real data comes in — no mystery boxes.</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ══════════════════════════════════════════
+         EUROPE–LATAM BRIDGE
+    ══════════════════════════════════════════ -->
+    <section class="section alt">
+      <div class="container">
+        <div class="bridge-card">
+          <div>
+            <p class="eyebrow">Europe · LATAM · Fully remote</p>
+            <h2>The Europe–LATAM ops bridge.</h2>
+            <p>I work across Spain, Portugal, Brazil, and the rest of Europe — fluent in the tools, regulations, and business cultures on both sides. GDPR-aware automations for European markets. WhatsApp-native flows for LATAM. One architect for both continents.</p>
+          </div>
+          <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener" style="flex-shrink:0;">Book a free call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FAQ
+    ══════════════════════════════════════════ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions people ask before booking.</h2>
+        <div class="faq-grid">
+          <article>
+            <h3>Who is this for?</h3>
+            <p>Small teams at premium service businesses — dental clinics, aesthetic practices, high-ticket consultancies, and B2B services — that have inbound demand but a leaky pipeline. If you're spending on ads but not converting consistently, this is for you.</p>
+          </article>
+          <article>
+            <h3>Do I need a CRM already?</h3>
+            <p>No. I can build from zero. If you already have a CRM, I'll audit and improve it. HubSpot is the primary environment, but I adapt to the stack you already have where it makes sense.</p>
+          </article>
+          <article>
+            <h3>What does delivery look like?</h3>
+            <p>Most projects ship a working system within 4–6 weeks. Week one is design and architecture. The rest is implementation. I need your team's input at two or three clear checkpoints — nothing more.</p>
+          </article>
+          <article>
+            <h3>Can you integrate with our existing stack?</h3>
+            <p>Yes. I audit what you have, map data owners, and use APIs or middleware to connect marketing, sales, and ops into one source of truth — without ripping out what's already working.</p>
+          </article>
+          <article>
+            <h3>What about GDPR and data privacy?</h3>
+            <p>Every system I build is designed with consent and data hygiene in mind — especially for European clients. Compliant automations, no third-party trackers, and documented data flows from day one.</p>
+          </article>
+          <article>
+            <h3>What do I need to get started?</h3>
+            <p>A 30-minute discovery call, admin access to your current tools (if any), and a short list of your top goals. I handle everything else and keep you informed throughout.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FINAL CTA
+    ══════════════════════════════════════════ -->
+    <section id="cta" class="section alt final-cta">
+      <div class="container">
+        <div class="card final-cta-card">
+          <p class="eyebrow">Next step</p>
+          <h2>If leads are slipping through the cracks, let's fix that.</h2>
+          <p>Book a free 30-minute call. We'll look at your current ops setup, find the biggest revenue leak, and I'll tell you exactly what I'd build to close it — no commitment required.</p>
+          <div class="cta-actions">
+            <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a free 30-min call</a>
+            <a class="btn secondary" href="mailto:edu@edops.eu">Email me directly</a>
+          </div>
+          <p class="cta-note" style="margin-top:1rem;">Typically reply within one business day. No sales pitch — just a genuine look at your ops.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -229,7 +546,6 @@
   </footer>
 
   <button class="to-top" type="button" aria-label="Back to top">↑</button>
-
   <script src="script.js"></script>
 </body>
 </html>
