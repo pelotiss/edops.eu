@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case Study: Lead Capture & Booking Automation — Premium Dental Clinic | EdOPS</title>
+  <meta name="description" content="How I designed an end-to-end revenue automation system — from lead capture to confirmed appointment — for a premium dental clinic using HubSpot, Make, and WhatsApp.">
+  <link rel="canonical" href="https://edops.eu/case-dental-booking.html">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: var(--accent);
+    }
+    .meta-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+    .chip {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+    .pipeline-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pipeline-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+    .pipeline-stage {
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 28px;
+      flex-shrink: 0;
+    }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .stack-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+    .stack-item h4 {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    .stack-item p {
+      margin: 0;
+      font-weight: 600;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+    .metric-card .eyebrow {
+      margin-bottom: 0.25rem;
+    }
+    .metric-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+    }
+    .metric-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="container header-content">
+      <a class="brand" href="/" aria-label="EdOPS home">
+        <img src="logos/EdOPS logo.png" alt="EdOPS" width="132" height="32">
+      </a>
+      <nav class="header-cta" aria-label="Primary">
+        <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a 30-minute session</a>
+        <a class="btn secondary" href="mailto:edu@edops.eu" aria-label="Send an email to edu@edops.eu">Email me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="section">
+      <div class="container">
+        <p class="breadcrumb"><a href="/">← Back to EdOPS</a></p>
+        <p class="eyebrow">Use case</p>
+        <h1>Lead Capture &amp; Booking Automation<br>Premium Dental Clinic</h1>
+        <p style="max-width: 680px; font-size: 1.1rem; color: var(--muted); margin-top: 0.75rem;">
+          A full revenue automation system — from the moment a lead arrives to a confirmed appointment. Built for a premium dental clinic targeting high-ticket treatments in Madrid.
+        </p>
+        <div class="meta-chips">
+          <span class="chip">HubSpot CRM</span>
+          <span class="chip">Make</span>
+          <span class="chip">WhatsApp Automation</span>
+          <span class="chip">Lead Scoring</span>
+          <span class="chip">Looker Studio</span>
+          <span class="chip">4–6 week delivery</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Snapshot stats -->
+    <section class="section alt">
+      <div class="container">
+        <div class="stat-row">
+          <div class="stat-box">
+            <p class="stat-number">&lt;1 min</p>
+            <p class="stat-label">Time to first response after a lead arrives</p>
+          </div>
+          <div class="stat-box">
+            <p class="stat-number">8</p>
+            <p class="stat-label">Pipeline stages mapped end-to-end</p>
+          </div>
+          <div class="stat-box">
+            <p class="stat-number">100%</p>
+            <p class="stat-label">Leads tracked with ownership &amp; follow-up tasks</p>
+          </div>
+          <div class="stat-box">
+            <p class="stat-number">72 h</p>
+            <p class="stat-label">No-show reactivation window — 2 automated attempts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The problem -->
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">The problem</p>
+          <h2>More ad spend wasn't the answer</h2>
+          <p>Premium dental clinics running solid campaigns still lose a large share of inbound leads before they ever sit in the chair. The bottlenecks are predictable:</p>
+          <ul class="case-points" style="font-size: 1rem; margin-top: 1rem;">
+            <li>Slow first response — leads go cold in under five minutes</li>
+            <li>No consistent follow-up after the first message</li>
+            <li>High no-show rates with no automated reminder system</li>
+            <li>No visibility into where the pipeline is actually leaking</li>
+          </ul>
+          <p style="margin-top: 1.5rem;">The clinic wasn't short on demand. It was short on <strong>system</strong>. Leads were captured manually via WhatsApp and a spreadsheet. That's the gap this project closes.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Context</p>
+          <h3 style="margin: 0.4rem 0 1rem;">Clinic profile</h3>
+          <ul class="case-points">
+            <li><strong>Type:</strong> Premium dental clinic, Madrid</li>
+            <li><strong>Average ticket:</strong> €2,500–€5,000 per treatment</li>
+            <li><strong>Lead sources:</strong> Google Ads, Meta Ads, web form, WhatsApp</li>
+            <li><strong>Team:</strong> 3–5 front-desk and ops staff</li>
+            <li><strong>Starting point:</strong> No CRM — leads managed via WhatsApp and a spreadsheet</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I built -->
+    <section class="section alt">
+      <div class="container">
+        <p class="eyebrow">What I built</p>
+        <h2>The complete system — from lead to signed treatment</h2>
+        <p class="section-intro">A single, connected automation layer that handles every step from inbound lead to confirmed appointment, with full pipeline visibility at each stage.</p>
+        <div class="services-grid">
+          <article class="card service-card">
+            <h3>Automated lead capture</h3>
+            <p>All inbound channels — web form, Meta Ads, Google Ads, and WhatsApp — route into a single HubSpot pipeline. No lead falls through the cracks.</p>
+          </article>
+          <article class="card service-card">
+            <h3>Sub-1-minute first response</h3>
+            <p>A Make automation triggers an instant WhatsApp message the moment a lead is created — before any human has touched it.</p>
+          </article>
+          <article class="card service-card">
+            <h3>Lead scoring &amp; qualification</h3>
+            <p>Contacts are scored based on channel, engagement, and intent signals. Leads reaching ≥70 points automatically trigger the booking sequence.</p>
+          </article>
+          <article class="card service-card">
+            <h3>Booking &amp; confirmation flow</h3>
+            <p>Qualified leads receive a HubSpot Meetings link. On booking, a deal is created and automatic confirmations go out via WhatsApp and email.</p>
+          </article>
+          <article class="card service-card">
+            <h3>Reminders &amp; no-show recovery</h3>
+            <p>Automated reminders at 24h and 2h before the appointment. No-shows trigger a reactivation flow with two attempts within 72 hours.</p>
+          </article>
+          <article class="card service-card">
+            <h3>Dashboard &amp; reporting</h3>
+            <p>A Looker Studio dashboard tracks conversion at every pipeline stage — show rates, time-to-close, CAC estimates, and revenue by channel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pipeline + Stack -->
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">The pipeline</p>
+          <h2>8 stages, fully automated transitions</h2>
+          <p>Every stage has a clear entry and exit criterion — so the team always knows what action to take next, and the system handles the rest.</p>
+          <ol class="pipeline-list" style="margin-top: 1.5rem;">
+            <li><span class="pipeline-stage">01</span><span><strong>New lead</strong> — Form / WhatsApp / Ad received. Auto-response in &lt;1 min.</span></li>
+            <li><span class="pipeline-stage">02</span><span><strong>Contacted</strong> — First contact made. Follow-up sequence starts.</span></li>
+            <li><span class="pipeline-stage">03</span><span><strong>Qualified</strong> — Lead Score ≥70. Booking sequence triggered.</span></li>
+            <li><span class="pipeline-stage">04</span><span><strong>Appointment scheduled</strong> — Booking confirmed. Deal created + reminders sent.</span></li>
+            <li><span class="pipeline-stage">05</span><span><strong>Appointment completed</strong> — Patient attended. Quote task assigned to team.</span></li>
+            <li><span class="pipeline-stage">06</span><span><strong>Quote sent</strong> — Proposal delivered. 48h follow-up task created.</span></li>
+            <li><span class="pipeline-stage">07</span><span><strong>Closed won</strong> — Accepted + paid. Satisfaction survey sent automatically.</span></li>
+            <li><span class="pipeline-stage">08</span><span><strong>Closed lost</strong> — No-show ×2 or declined. 30-day reactivation workflow begins.</span></li>
+          </ol>
+        </div>
+        <div>
+          <p class="eyebrow">The stack</p>
+          <h2>Tools used</h2>
+          <div class="stack-grid">
+            <div class="stack-item">
+              <h4>CRM</h4>
+              <p>HubSpot</p>
+            </div>
+            <div class="stack-item">
+              <h4>Automation</h4>
+              <p>Make</p>
+            </div>
+            <div class="stack-item">
+              <h4>WhatsApp</h4>
+              <p>Meta Cloud API + 360Dialog</p>
+            </div>
+            <div class="stack-item">
+              <h4>Booking</h4>
+              <p>HubSpot Meetings</p>
+            </div>
+            <div class="stack-item">
+              <h4>Reporting</h4>
+              <p>Looker Studio + Google Sheets</p>
+            </div>
+            <div class="stack-item">
+              <h4>Lead sources</h4>
+              <p>Meta Ads, Google Ads, web form</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="section alt">
+      <div class="container">
+        <p class="eyebrow">Key metrics tracked</p>
+        <h2>Every stage is measurable</h2>
+        <p class="section-intro">The system is built around five conversion metrics — visible in real time on the Looker Studio dashboard, so decisions are always data-driven.</p>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <p class="eyebrow">Speed</p>
+            <h3>Time to first contact</h3>
+            <p>Target &lt;1 minute. Every lead gets an automated WhatsApp the moment they submit — no manual trigger needed.</p>
+          </div>
+          <div class="metric-card">
+            <p class="eyebrow">Reach</p>
+            <h3>Lead → Contact rate</h3>
+            <p>Percentage of new leads that respond and engage after the first automated message.</p>
+          </div>
+          <div class="metric-card">
+            <p class="eyebrow">Conversion</p>
+            <h3>Contact → Appointment rate</h3>
+            <p>Percentage of contacted leads who schedule a confirmed appointment.</p>
+          </div>
+          <div class="metric-card">
+            <p class="eyebrow">Reliability</p>
+            <h3>Appointment show rate</h3>
+            <p>Percentage of booked patients who actually attend — improved by the reminder and no-show recovery flows.</p>
+          </div>
+          <div class="metric-card">
+            <p class="eyebrow">Revenue</p>
+            <h3>Appointment → Close rate</h3>
+            <p>Percentage of attended appointments that convert to a signed treatment plan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section final-cta">
+      <div class="container">
+        <div class="card final-cta-card">
+          <p class="eyebrow">Want something similar?</p>
+          <h2>Let's build your lead-to-booking system</h2>
+          <p>Whether you run a clinic, a high-ticket service, or a B2B sales operation — if leads are slipping through the cracks, I can design and implement the system that stops the leak.</p>
+          <div class="cta-actions">
+            <a class="btn primary" href="https://calendly.com/edu-edops/30min" target="_blank" rel="noopener">Book a 30-minute session</a>
+            <a class="btn secondary" href="mailto:edu@edops.eu">Email me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> EdOps. All rights reserved.</p>
+      <p class="footer-note">Privacy policy, terms, and imprint available on request.</p>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
